@@ -27,3 +27,5 @@ deploy:
     app: $AWS_APP_NAME
     env: $AWS_APP_ENV
     bucket_name: $AWS_BUCKET_NAME
+    on:
+      branch: main
