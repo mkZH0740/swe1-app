@@ -6,7 +6,7 @@ python:
   - "3.10"
 
 install:
-  - bundle add webrick
+  - gem install webrick
   - pip install -r requirements.txt
   - pip install black
   - pip install flake8
