@@ -20,8 +20,6 @@ script:
   - black . --check
   - flake8 --max-line-length=88
   - coverage run --source=ebdjango,polls manage.py test
-
-after_script:
   - COVERALLS_REPO_TOKEN=$COVERALLS_REPO_TOKEN coveralls
 
 deploy:
