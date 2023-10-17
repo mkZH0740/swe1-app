@@ -1,6 +1,19 @@
 language: python
 os: linux
+# ubuntu 22.04
+dist: jammy
 python:
   - "3.12"
 install:
   - pip install -r requirements.txt
+
+# after script
+
+deploy:
+  - provider: elasticbeanstalk
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_ACCESS_SECRET
+    region: $AWS_DEPLOY_REGION
+    app: $AWS_APP_NAME
+    env: $AWS_APP_ENV
+    bucket_name: $AWS_BUCKET_NAME
