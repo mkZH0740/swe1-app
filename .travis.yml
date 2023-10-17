@@ -4,10 +4,21 @@ os: linux
 dist: jammy
 python:
   - "3.10"
+
 install:
   - pip install -r requirements.txt
+  - pip install black
+  - pip install flake8
+  - pip install coverall
 
+before_script:
+  - python manage.py migrate
+  - python manage.py collectstatic --noinput
 # after script
+
+script:
+  - black . --check
+  - flake8 --max-line-length=88
 
 deploy:
   - provider: elasticbeanstalk
