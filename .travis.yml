@@ -1,9 +1,12 @@
 language: python
 os: linux
+# ubuntu 22.04
+dist: jammy
 python:
-  - "3.8"
+  - "3.10"
 
 install:
+  - bundle add webrick
   - pip install -r requirements.txt
   - pip install black
   - pip install flake8
